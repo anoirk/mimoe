@@ -18,7 +18,7 @@ anoir.on("data", (datainfo)=>{
     let lijst = dataver.weather[0].main
     
 
-    res.send(`het weer in london is:${lijst}`)
+    res.send(`<h1>Het weer in london is:${lijst}</h1>`)
 })
 
 })
