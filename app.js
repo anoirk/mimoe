@@ -1,6 +1,7 @@
 const express = require("express");
 const https = require("https");
-const body = require("body-parser")
+const body = require("body-parser");
+const { Console } = require("console");
 const app = express();
 
 
@@ -18,7 +19,7 @@ anoir.on("data", (datainfo)=>{
     let lijst = dataver.weather[0].main
     
 
-    res.send(`<h1>Het weer in london is:${lijst}</h1>`)
+    res.send(`<h1>Het weer in london is:${lijst}</h1> :)`)
 })
 
 })
@@ -30,6 +31,24 @@ anoir.on("data", (datainfo)=>{
 
 console.log(`pageview is nu ${counter}`)
     });
+
+
+    app.post("/post" , (req, res)=>{
+       let url = "http:/blsblsbs"
+       let options = {
+           methode: "post"
+       }
+
+        https.post(url, options, (data)=>{
+            if (data.statusCode === 200){
+                Console.log("ja het werkt")
+            }
+        })
+
+    })
+
+
+
 
 app.listen(process.env.PORT || 80, ()=>{
     console.log("server is aan het luisteren...");
